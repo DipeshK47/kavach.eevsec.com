@@ -1,7 +1,13 @@
 {
   "name": "kavach",
-  "compatibility_date": "2026-08-20",
+  "compatibility_date": "2026-09-01",
+  "routes": [
+    {
+      "pattern": "kavach.eevsec.com",
+      "custom_domain": true
+    }
+  ],
   "assets": {
-    "directory": "."
+    "directory": "./dist"
   }
 }

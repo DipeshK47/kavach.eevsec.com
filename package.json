@@ -5,7 +5,9 @@
   "description": "Kavach website",
   "type": "commonjs",
   "scripts": {
-    "dev": "node server.js"
+    "dev": "node server.js",
+    "build": "node scripts/build-static.js",
+    "deploy": "npm run build && wrangler deploy"
   },
   "devDependencies": {
     "wrangler": "^4.126.0"
