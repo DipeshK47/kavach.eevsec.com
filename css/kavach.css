@@ -11,7 +11,7 @@ html.kv-motion .kv-enter.in { opacity:1; transform:none; }
 
 /* A family post becomes a visual clue, not a wall of copy. */
 .kv-risk__graphic { display:grid; grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr); gap:clamp(18px,3vw,42px); align-items:center; }
-.kv-risk__right { min-width:0; margin-top:clamp(16px,2.5vw,30px); }
+.kv-risk__right { min-width:0; container-type:inline-size; margin-top:clamp(16px,2.5vw,30px); }
 .kv-post { width:100%; max-width:500px; margin:auto; overflow:hidden; background:#fff; border:1px solid #dbdbdb; border-radius:18px; color:#111; font-family:Arial,Helvetica,sans-serif; box-shadow:0 24px 65px -45px #0009; }
 .kv-post__top { display:flex; align-items:center; gap:10px; min-height:58px; padding:9px 13px; }
 .kv-post__avatar { display:grid; place-items:center; flex:none; width:39px; height:39px; padding:2px; border-radius:50%; background:linear-gradient(45deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5); }
@@ -51,7 +51,8 @@ html.kv-motion .kv-enter.in { opacity:1; transform:none; }
 @keyframes kv-panel { from { opacity:.2; transform:translateY(8px); } to { opacity:1; transform:none; } }
 .kv-clues__result { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-top:16px; color:#9fe3a9; font:500 .72rem/1.4 var(--font-mono); letter-spacing:.04em; }
 .kv-risk__bridge { margin-top:clamp(38px,5vw,64px); padding-top:clamp(26px,3vw,38px); border-top:1px solid var(--line-2); text-align:center; }
-.kv-risk__question { max-width:22ch; margin:22px auto 0; color:var(--ink); font:400 clamp(2.2rem,3.2vw,3.8rem)/1.02 var(--font-display); letter-spacing:-.03em; text-align:center; text-wrap:balance; }
+/* One line, centred under the clues box: sized off that column (cqi) so it always fits its width. */
+.kv-risk__question { margin:22px 0 0; color:var(--ink); font:400 clamp(1.3rem,3vw,2.6rem)/1.02 var(--font-display); font-size:min(6.9cqi,3.8rem); letter-spacing:-.03em; text-align:center; white-space:nowrap; }
 .kv-risk__bridge h2 { margin:0; color:var(--ink); font:400 clamp(3.1rem,8vw,8.5rem)/.94 var(--font-display); letter-spacing:-.04em; text-wrap:balance; }
 .kv-risk__answer { max-width:34ch; margin:18px auto 0; color:var(--ink); font:400 clamp(1.5rem,2.5vw,2.55rem)/1.18 var(--font-display); text-wrap:balance; }
 /* Typing title (kavach.js): chars hold their space so the centred line never shifts. */
@@ -138,7 +139,7 @@ html.kv-typed .kv-explain .kv-pillars { transition-delay:.35s; }
 /* Content sits centred in the band between the nav (padding-top) and the ticker (padding-bottom). */
 .careers-hero { isolation:isolate; place-items:center; padding-top:clamp(84px,10svh,110px); background:#020806; }
 .kv-hero__eyebrow.careers-kicker { gap:0; font-size:clamp(12px,1vw,15px); }
-.kv-hero h1 { font-size:clamp(4.2rem,min(10vw,17svh),11.5rem); letter-spacing:-.04em; line-height:.9; margin:14px auto 20px; }
+.kv-hero h1 { font-size:clamp(4.2rem,min(10vw,17svh),11.5rem); letter-spacing:-.04em; line-height:.9; margin:4px auto 20px; }
 .kv-hero__claim { margin:0 0 14px; color:#f3efe5; font:400 clamp(1.5rem,2.6vw,2.6rem)/1.2 'DM Serif Display',Georgia,serif; animation:careers-copy-arrive .78s cubic-bezier(.16,1,.3,1) 1s both; }
 .kv-hero__lede.careers-lede { max-width:52ch; color:#c8d0c5; font:400 clamp(1rem,1.45vw,1.35rem)/1.5 Manrope,Arial,sans-serif; letter-spacing:0; }
 .kv-hero__actions.careers-text-link { margin-top:clamp(20px,3svh,32px); }
@@ -230,7 +231,7 @@ html.kv-typed .kv-explain .kv-pillars { transition-delay:.35s; }
 }
 @media(max-width:680px) {
   .careers-hero { padding:clamp(82px,11svh,94px) 20px 45px; }
-  .kv-hero h1 { font-size:clamp(2.4rem,10.4vw,4.5rem); line-height:.93; margin:10px auto 14px; }
+  .kv-hero h1 { font-size:clamp(2.4rem,10.4vw,4.5rem); line-height:.93; margin:4px auto 14px; }
   .kv-hero__claim { font-size:clamp(1.2rem,5vw,1.5rem); margin-bottom:8px; }
   .kv-hero__lede.careers-lede { max-width:38ch; font-size:.85rem; line-height:1.45; }
   .kv-hero__actions.careers-text-link { margin-top:16px; }
@@ -255,3 +256,8 @@ html.kv-typed .kv-explain .kv-pillars { transition-delay:.35s; }
 }
 @media(max-height:650px) { .careers-hero { padding-top:76px; }.kv-hero h1 { font-size:clamp(2.2rem,min(8.2vw,12svh),8rem); }.kv-hero__claim { margin-bottom:7px; } }
 @media(prefers-reduced-motion:reduce) { .kv-hero__claim { animation:none; } }
+/* Indian Army crest: hero lockup above the eyebrow, and a marker on the "Defence & armed forces" row. */
+.kv-hero__crest { width:auto; height:clamp(76px,13svh,124px); margin:0 auto clamp(12px,2svh,18px); border-radius:5px; animation:careers-copy-arrive .78s cubic-bezier(.16,1,.3,1) .45s both; }
+.kv-audience__featured { display:grid; grid-template-columns:1fr auto; column-gap:18px; align-items:center; }
+.kv-audience__featured img { grid-area:1/2/3/3; width:auto; height:clamp(42px,4vw,54px); border-radius:4px; }
+@media(prefers-reduced-motion:reduce) { .kv-hero__crest { animation:none; } }
