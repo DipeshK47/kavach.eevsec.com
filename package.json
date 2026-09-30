@@ -1,0 +1,13 @@
+{
+  "name": "kavach",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Kavach website",
+  "type": "commonjs",
+  "scripts": {
+    "dev": "node server.js"
+  },
+  "devDependencies": {
+    "wrangler": "^4.126.0"
+  }
+}
