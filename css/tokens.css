@@ -1,69 +1,69 @@
-/* Hallmark · macrostructure: Asymmetric Command · tone: editorial-aesthetic
- * theme: soft mesh gradient (teal/emerald/lime) + emerald accent
- * bg-light: oklch(98% 0 0) · bg-dark: oklch(10% 0 0) · accent: emerald
- * headings: Instrument Serif · body: Geist 300 · mono: Geist Mono
- * axes: dual-mode · serif-display · sans-body · gradient-bg
- */
+@font-face {
+  font-family: 'EEVSEC Serif';
+  src: url('/media/fonts/EEVSECSerif.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
-  /* ── surfaces — neutral grayscale (light mode) ── */
-  --bg:        oklch(98%   0 0);
-  --bg-1:      oklch(96%   0 0);
-  --bg-2:      oklch(93%   0 0);
-  --bg-3:      oklch(88%   0 0);
-  --bg-inset:  oklch(100%  0 0);
+  /* October 23 EEVSEC brand kit */
+  --navy: #1b3557;
+  --paper: #f6f4ef;
+  --white: #ffffff;
+  --muted: #515b67;
+  --cool: #f1f4f7;
+  --charcoal: #1f2022;
+  --cream: #f2f1ed;
+  --silk-silver: #cbd4db;
+  --silk-mist: #e5eaf0;
+  --silk-white: #f8fafc;
 
-  /* ── borders — pure neutral ── */
-  --line:    oklch(0% 0 0 / 0.08);
-  --line-2:  oklch(0% 0 0 / 0.14);
-  --line-3:  oklch(0% 0 0 / 0.22);
+  --bg: var(--paper);
+  --bg-1: var(--white);
+  --bg-2: var(--cool);
+  --bg-3: var(--silk-mist);
+  --bg-inset: var(--white);
+  --line: rgb(27 53 87 / 20%);
+  --line-2: rgb(27 53 87 / 25%);
+  --line-3: rgb(27 53 87 / 38%);
 
-  /* ── ink — neutral grayscale ── */
-  --ink:     oklch(14%  0 0);
-  --ink-2:   oklch(34%  0 0);
-  --ink-3:   oklch(54%  0 0);
-  --ink-4:   oklch(68%  0 0);
+  --ink: #000000;
+  --ink-2: var(--muted);
+  --ink-3: var(--muted);
+  --ink-4: var(--muted);
 
-  /* ── accent (emerald — harmonizes with mesh gradient) ──
-   * legacy token name --violet retained for backwards compat. */
-  --violet:       oklch(58%  0.180 150);
-  --violet-2:     oklch(64%  0.190 145);
-  --violet-ink:   oklch(99%  0 0);
-  --violet-soft:  oklch(58%  0.180 150 / 0.10);
-  --violet-glow:  oklch(58%  0.180 150 / 0.18);
+  /* Shared styles still use the original accent token names. */
+  --violet: var(--navy);
+  --violet-2: color-mix(in srgb, var(--navy) 90%, black);
+  --violet-ink: var(--white);
+  --violet-soft: rgb(27 53 87 / 10%);
+  --violet-glow: var(--line);
+  --cyan: var(--navy);
+  --cyan-2: var(--navy);
+  --cyan-ink: var(--white);
+  --cyan-soft: var(--violet-soft);
+  --cyan-glow: var(--violet-glow);
+  --warn: #b42318;
 
-  /* ── secondary tone (teal — for "defender"/cool accents) ──
-   * legacy token name --cyan retained. */
-  --cyan:         oklch(55%  0.140 205);
-  --cyan-2:       oklch(62%  0.150 200);
-  --cyan-ink:     oklch(99%  0 0);
-  --cyan-soft:    oklch(55%  0.140 205 / 0.10);
-  --cyan-glow:    oklch(55%  0.140 205 / 0.18);
+  --how-surface: var(--paper);
+  --how-surface-2: var(--white);
+  --how-terminal: var(--charcoal);
+  --how-terminal-bar: var(--navy);
+  --how-atk: var(--warn);
+  --how-def: var(--navy);
+  --how-line-atk: color-mix(in srgb, var(--warn) 62%, transparent);
+  --how-line-def: color-mix(in srgb, var(--navy) 62%, transparent);
+  --how-card-shadow: rgb(0 0 0 / 7%);
+  --scrim: rgb(31 32 34 / 42%);
+  --mesh-1: var(--silk-silver);
+  --mesh-2: var(--silk-mist);
+  --mesh-3: var(--silk-white);
 
-  --warn:         oklch(58%  0.180 30);
-
-  /* ── how-it-works diagram tokens ── */
-  --how-surface:       oklch(97% 0.008 75 / 0.72);
-  --how-surface-2:     oklch(100% 0 0 / 0.82);
-  --how-terminal:      oklch(18% 0.008 260);
-  --how-terminal-bar:  oklch(24% 0.008 260);
-  --how-atk:           oklch(58% 0.215 27);
-  --how-def:           oklch(52% 0.145 142);
-  --how-line-atk:      oklch(58% 0.215 27 / 0.62);
-  --how-line-def:      oklch(52% 0.145 142 / 0.62);
-  --how-card-shadow:   oklch(0% 0 0 / 0.07);
-
-  /* ── guide-bot spotlight scrim ── */
-  --scrim:        oklch(28%  0.02  262 / 0.42);
-
-  /* ── mesh gradient stops (used by .field) ── */
-  --mesh-1: oklch(55% 0.150 200 / 0.35);  /* teal,    top-left   */
-  --mesh-2: oklch(65% 0.180 160 / 0.30);  /* emerald, right      */
-  --mesh-3: oklch(82% 0.200 130 / 0.28);  /* lime,    bottom     */
-
-  /* ── type ── */
-  --font-display: 'Instrument Serif', ui-serif, Georgia, 'Times New Roman', serif;
-  --font-body:    'Geist', ui-sans-serif, system-ui, -apple-system, sans-serif;
-  --font-mono:    'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+  --font-display: 'EEVSEC Serif', Georgia, serif;
+  --font-body: var(--font-display);
+  --font-mono: var(--font-display);
+  --font-wordmark: 'Times New Roman', Times, serif;
 
   /* fluid type scale */
   --text-hero:  clamp(2.9rem, 1.4rem + 6.5vw, 7.2rem);

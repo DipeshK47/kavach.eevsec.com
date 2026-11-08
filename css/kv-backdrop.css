@@ -1,14 +1,14 @@
-/* "Elegant Dark Pattern" (21st.dev, @jatin-yadav05) ported to plain CSS: a static backdrop fixed behind
-   everything below the opaque hero. Beams use the site green; base glow and dots follow the theme tokens.
-   Lives in its own file so kavach.css rewrites don't drop it. */
-.kv-backdrop { position:fixed; inset:0; z-index:-1; overflow:hidden; pointer-events:none; }
-.kv-backdrop::before { content:""; position:absolute; inset:0; background:radial-gradient(100% 100% at 0% 0%,var(--bg-3),var(--bg)); mask:radial-gradient(125% 100% at 0% 0%,#000,#00000039 88%,#0000); }
-.kv-backdrop i { position:absolute; inset:0; opacity:.2; background:linear-gradient(var(--violet),transparent); transform:skewX(45deg); }
-.kv-backdrop i:nth-child(1) { mask:linear-gradient(90deg,#0000 0%,#000 20%,#0000 36%,#000 55%,#00000021 67%,#000 78%,#0000 97%); }
-.kv-backdrop i:nth-child(2) { mask:linear-gradient(90deg,#0000 11%,#000 25%,#0000008c 41%,#00000021 67%,#000 78%,#0000 97%); }
-.kv-backdrop i:nth-child(3) { mask:linear-gradient(90deg,#0000 9%,#000 20%,#0000008c 28%,#0000006c 40%,#000 48%,#00000044 54%,#00000021 78%,#000 88%,#0000 97%); }
-.kv-backdrop i:nth-child(4) { mask:linear-gradient(90deg,#0000 0%,#000 17%,#0000008c 26%,#000 35%,#0000 47%,#00000021 69%,#000 79%,#0000 97%); }
-.kv-backdrop i:nth-child(5) { mask:linear-gradient(90deg,#0000 0%,#000 20%,#0000008c 27%,#000 42%,#0000 48%,#00000021 67%,#000 74%,#000 82%,#00000078 88%,#0000 97%); }
-.kv-backdrop::after { content:""; position:absolute; inset:0; opacity:.2; background:radial-gradient(circle at 1px 1px,color-mix(in oklab,var(--ink) 50%,transparent) 1px,transparent 0) 0 0/20px 20px; }
-/* Sections stay see-through so the backdrop is the only background below the hero. */
-.kavach-home .kv-section { background:transparent; }
+/* Paper grain from the October 23 EEVSEC brand kit. */
+body { isolation: isolate; }
+
+.field,
+.kv-backdrop { display: none; }
+
+.grain {
+  z-index: -1;
+  opacity: 1;
+  mix-blend-mode: normal;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .25 0 0 0 0 .22 0 0 0 0 .17 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.kavach-home .kv-section { background: transparent; }

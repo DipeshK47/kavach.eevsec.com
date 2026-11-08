@@ -14,13 +14,16 @@ html {
 body {
   font-family: var(--font-body);
   font-size: var(--text-md);
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.65;
   color: var(--ink-2);
   background: var(--bg);
   overflow-x: clip;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  /* The kit disables the custom face's broken kerning pairs. */
+  font-kerning: none;
+  font-feature-settings: "kern" 0;
   letter-spacing: -0.004em;
   transition: background var(--dur-mid), color var(--dur-mid);
 }
@@ -283,7 +286,7 @@ html { scroll-padding-top: 88px; }
   padding: 6px 10px 6px 24px;
   width: min(100% - 32px, 1080px);
   border-radius: var(--r-pill);
-  background: oklch(98.5% 0 0 / 0.82);
+  background: rgb(255 255 255 / 82%);
   backdrop-filter: blur(28px) saturate(1.8) brightness(1.02);
   box-shadow:
     0 0 0 1px var(--line-2),
@@ -295,7 +298,7 @@ html { scroll-padding-top: 88px; }
     box-shadow  0.4s var(--ease-out);
 }
 .nav.is-stuck .nav__inner {
-  background: oklch(98.5% 0 0 / 0.97);
+  background: var(--white);
   box-shadow: 0 0 0 1px var(--line-2), 0 16px 48px -16px oklch(0% 0 0 / 0.12);
 }
 [data-theme="dark"] .nav__inner {
@@ -326,7 +329,7 @@ html { scroll-padding-top: 88px; }
 }
 [data-theme="dark"] .brand-group:hover .brand-icon { background: oklch(72% 0.18 150 / 0.18); }
 .brand {
-  font-family: var(--font-display); font-size: 2rem; font-weight: 400;
+  font-family: var(--font-wordmark); font-size: 2rem; font-weight: 400;
   letter-spacing: -0.015em; color: var(--ink);
   display: flex; align-items: center; margin-right: auto;
 }
@@ -412,7 +415,7 @@ html { scroll-padding-top: 88px; }
     display: flex; flex-direction: column; gap: 2px;
     position: fixed; top: 76px; left: 16px; right: 16px; z-index: 49;
     padding: 12px; border-radius: 18px;
-    background: oklch(98.5% 0 0 / 0.6);
+    background: var(--white);
     backdrop-filter: blur(28px) saturate(1.8);
     -webkit-backdrop-filter: blur(28px) saturate(1.8);
     box-shadow: 0 0 0 1px var(--line-2), 0 24px 60px -16px oklch(0% 0 0 / 0.28);
@@ -430,9 +433,10 @@ html { scroll-padding-top: 88px; }
     transition: background var(--dur-fast), color var(--dur-fast);
   }
   .nav__menu a:hover, .nav__menu a:active { background: var(--bg-2); color: var(--ink); }
+  .nav__menu .btn--primary:is(:hover, :active) { background: var(--violet-2); color: var(--violet-ink); }
   .nav__menu .btn--primary {
     justify-content: center; margin-top: 8px; padding: 14px 16px; font-size: 0.8rem;
-    color: #000;   /* black label on the green button */
+    color: var(--violet-ink);
   }
 }
 
@@ -2214,8 +2218,7 @@ img.scen__ic { filter: none; }
 .foot__bottom-links a { color: var(--ink-3); transition: color var(--dur-fast); }
 .foot__bottom-links a:hover { color: var(--ink-2); }
 
-/* The footer sits directly on the mesh field. Keep the field visible and
- * use near-black ink instead of a translucent gray scrim. */
+/* EEVSEC charcoal and cream footer. */
 .foot__brand,
 .foot__tag,
 .foot__motto,
@@ -2231,14 +2234,15 @@ img.scen__ic { filter: none; }
 .foot__bottom,
 .foot__bottom-links a,
 .foot__legal-name {
-  color: oklch(12% 0 0);
+  color: var(--cream);
 }
-.foot__link { border-color: oklch(12% 0 0 / 0.2); }
+.foot__link { border-color: rgb(242 241 237 / 20%); }
 .foot__links a:hover,
 .foot__contact a:hover,
 .foot__email:hover,
 .foot__link:hover,
-.foot__bottom-links a:hover { color: var(--violet); }
+.foot__bottom-links a:hover { color: var(--white); }
+.foot__link:hover { background: rgb(242 241 237 / 12%); }
 
 /* Dark mode keeps the same transparent surface, but switches the footer ink
  * to white for readable contrast against the dark field. */
@@ -2321,8 +2325,9 @@ img.scen__ic { filter: none; }
   letter-spacing: 0.06em; text-decoration: underline; text-underline-offset: 3px;
   color: var(--ink-2); cursor: pointer;
 }
-.consent__manage:hover,
-.foot__cookie-link:hover { color: var(--violet); }
+.consent__manage:hover { color: var(--navy); }
+.foot__cookie-link { color: var(--cream); }
+.foot__cookie-link:hover { color: var(--white); }
 .consent__settings {
   display: flex; flex-direction: column; gap: 14px;
   padding-top: 14px; border-top: 1px solid var(--line);
@@ -2383,7 +2388,7 @@ img.scen__ic { filter: none; }
 .legal__section a, .legal__inline-button { color: var(--violet); text-decoration: underline; text-underline-offset: 3px; }
 .legal__inline-button { border: 0; padding: 0; font-size: inherit; cursor: pointer; }
 .legal__section address { margin: 18px 0; color: var(--ink-2); font-style: normal; font-size: var(--text-sm); line-height: 1.65; }
-.legal code { font-family: var(--font-mono); font-size: .9em; color: var(--ink); }
+.legal code { font-family: ui-monospace, monospace; font-size: .9em; color: var(--ink); }
 .legal__table-wrap { overflow-x: auto; margin: 22px 0 16px; border: 1px solid var(--line-2); border-radius: var(--r-md); }
 .legal__table { width: 100%; min-width: 660px; border-collapse: collapse; background: var(--bg-1); font-size: var(--text-xs); line-height: 1.45; }
 .legal__table th, .legal__table td { padding: 13px 14px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }

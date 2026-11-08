@@ -5,9 +5,7 @@
   inset: 0;
   z-index: 8;
   pointer-events: none;
-  background:
-    linear-gradient(180deg, var(--ink), var(--ink)),
-    var(--ink);
+  background: var(--paper);
   transform-origin: top;
   will-change: clip-path;
   animation: careers-curtain-open 1.18s cubic-bezier(.77, 0, .18, 1) .12s both;
@@ -22,8 +20,8 @@
   height: 1px;
   pointer-events: none;
   opacity: 0;
-  background: linear-gradient(90deg, transparent, var(--lime) 38%, var(--ivory) 50%, var(--lime) 62%, transparent);
-  box-shadow: 0 0 18px color-mix(in srgb, var(--lime) 72%, transparent), 0 0 54px color-mix(in srgb, var(--lime) 28%, transparent);
+  background: linear-gradient(90deg, transparent, var(--navy) 38%, var(--white) 50%, var(--navy) 62%, transparent);
+  box-shadow: 0 0 18px color-mix(in srgb, var(--navy) 72%, transparent), 0 0 54px color-mix(in srgb, var(--navy) 28%, transparent);
   will-change: transform, opacity;
   animation: careers-scan-drop 1.12s cubic-bezier(.65, 0, .35, 1) .16s both;
 }
@@ -101,7 +99,7 @@
 
 @keyframes careers-field-arrive {
   from { opacity: 0; transform: scale(1.075); }
-  to { opacity: .46; transform: scale(1); }
+  to { opacity: 1; transform: scale(1); }
 }
 
 @keyframes careers-nav-settle {

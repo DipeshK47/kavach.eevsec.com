@@ -397,7 +397,7 @@
 }
 .cform__input {
   width: 100%; font-family: var(--font-body); font-size: var(--text-base);
-  color: var(--ink); background: var(--bg-1);
+  color: var(--ink); background: var(--white);
   border: 1px solid var(--line-2); border-radius: var(--r-sm);
   padding: 12px 14px; transition: border-color var(--dur-fast), box-shadow var(--dur-fast);
 }
@@ -406,7 +406,7 @@
   outline: none; border-color: var(--violet);
   box-shadow: 0 0 0 3px var(--violet-soft);
 }
-.cform__input.is-invalid { border-color: var(--warn); box-shadow: 0 0 0 3px oklch(58% 0.18 30 / 0.16); }
+.cform__input.is-invalid { border-color: var(--warn); box-shadow: 0 0 0 3px color-mix(in srgb, var(--warn) 16%, transparent); }
 .cform__select { appearance: none; -webkit-appearance: none; cursor: pointer;
   background-image: linear-gradient(45deg, transparent 50%, var(--ink-3) 50%), linear-gradient(135deg, var(--ink-3) 50%, transparent 50%);
   background-position: calc(100% - 18px) center, calc(100% - 13px) center;
