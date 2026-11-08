@@ -23,6 +23,10 @@
 - Interaction behavior: Preserve anchor navigation, mobile menu, clue tabs and autoplay, decision feedback and reset, demo form, and cookie controls.
 - Reuse boundary: Map the kit palette onto existing tokens, self-host the supplied WOFF2, and adapt the exact shader and configuration to the existing canvas. Preserve EEVSEC and KAVACH images. Keep the explanatory social post's existing visual language and use the charcoal and cream palette for the footer and scene overlays.
 
+### Mobile hero refinement
+
+Keep the crest, eyebrow, headline, claim, description, two links, and ticker in their existing order. At the mobile navigation breakpoint, reserve room for the fixed header, size the crest and headline for the available width, and use readable body type. Give the demo link a full-width navy pill in the centered action group and the secondary link its own underlined, touch-sized row. Place the ticker after the content in normal flow and let the hero height follow the content. Short or zoomed views may scroll naturally. Maintain the desktop composition, Pearl Silver background, copy, and destinations.
+
 ### Filled generation prompt
 
 Retheme the existing KAVACH homepage and privacy page to match the attached October 23, 2026 EEVSEC Brand Kit.
